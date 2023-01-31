@@ -6,7 +6,7 @@ import * as serverService from './services/server.service';
 const UserName = 'zavod';
 const Password = 'YGD8x5F99baVhXmf';
 const clasterInfo = 'cluster0.ltywpep';
-const applicationName = '';
+const applicationName = '?retryWrites=true&w=majority';
 
 (async () => {
   try {
