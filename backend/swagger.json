@@ -1879,7 +1879,13 @@
           "items": {
             "type": "string"
           } 
-        }      
+        },      
+        "bgcolor": {
+          "type": "string"
+        },
+        "bgimage": {
+          "type": "string"
+        }
       },
       "example": {
         "_id": "Board id",
@@ -1888,7 +1894,9 @@
         "users": [
           "userId of invited user #1",
           "userId of invited user #2"
-        ]
+        ],
+        "bgcolor": "#222222",
+        "bgimage": ""
       }
     },
     "Column": {
