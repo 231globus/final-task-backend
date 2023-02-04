@@ -13,6 +13,14 @@ const boardScheme = new Schema({
   users: {
     type: [String],
     required: true,
+  },
+  bgcolor: {
+    type: String,
+    required: false,
+  },
+  bgimage: {
+    type: String,
+    required: false,
   }
 }, { versionKey: false });
 
