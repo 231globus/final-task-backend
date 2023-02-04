@@ -28,14 +28,14 @@ export const getBoardById = async (req: Request, res: Response) => {
 export const createBoard = async (req: Request, res: Response) => {
   const guid = req.header('Guid') || 'undefined';
   const initUser = req.header('initUser') || 'undefined';
-  const bodyError = checkBody(req.body, ['title', 'owner', 'users'])
+  const bodyError = checkBody(req.body, ['title', 'owner', 'users', 'bgcolor', 'bgimage'])
   if (bodyError) {
     return res.status(400).send(createError(400, "bad request: " + bodyError));
   }
 
-  const { title, owner, users } = req.body;
+  const { title, owner, users, bgcolor, bgimage } = req.body;
   try {
-    const newBoard = await boardService.createBoard({ title, owner, users }, guid, initUser);
+    const newBoard = await boardService.createBoard({ title, owner, users, bgcolor, bgimage }, guid, initUser);
     res.json(newBoard);
   }
   catch (err) { return console.log(err); }
