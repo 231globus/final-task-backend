@@ -15,6 +15,7 @@ import columnsSetRouter from '../routes/columnsSetRouter';
 import pointsRouter from '../routes/pointsRouter';
 import swaggerUi from 'swagger-ui-express';
 import swaggerDocument from '../../swagger.json';
+import boardsFavouriteRouter from '../routes/boardsFavouriteRouter';
 
 
 export const app = express();
@@ -36,6 +37,7 @@ app.use('/users', usersRouter);
 app.use('/auth', authRouter);
 app.use('/boards', boardsRouter);
 app.use('/boardsSet', boardsSetRouter);
+app.use('/favourites', boardsFavouriteRouter);
 app.use('/columnsSet', columnsSetRouter);
 app.use('/tasksSet', tasksSetRouter);
 app.use('/file', filesRouter);

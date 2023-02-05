@@ -21,6 +21,10 @@ const boardScheme = new Schema({
   bgImg: {
     type: String,
     required: false,
+  },
+  usersFavourite: {
+    type: [String],
+    required: true,
   }
 }, { versionKey: false });
 

@@ -32,6 +32,11 @@ export const findBoardsByUser = async (userId: string) => {
   return allBoards.filter(item => item.owner === userId || item.users.includes(userId))
 }
 
+export const findFavouriteBoardsByUser = async (userId: string) => {
+  const allBoards = await board.find({});
+  return allBoards.filter(item => item.usersFavourite.includes(userId) && item.users.includes(userId))
+}
+
 export const updateBoard = async (id: string, params: any, guid: string, initUser: string, emit = true, notify = true) => {
   const boardId = new ObjectId(id);
   const oldVersion = await findBoardById(id);

@@ -365,7 +365,8 @@
                 "owner",
                 "users",
                 "bgColor",
-                "bgImg"
+                "bgImg",
+                "usersFavourite"
               ],
               "properties": {
                 "title": {
@@ -385,6 +386,12 @@
                 },
                 "bgImg": {
                   "type": "string"
+                },
+                "usersFavourite": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  } 
                 }
               }
             }
@@ -470,7 +477,8 @@
                 "owner",
                 "users",
                 "bgColor",
-                "bgImg"
+                "bgImg",
+                "usersFavourite"
               ],
               "properties": {
                 "title": {
@@ -490,6 +498,12 @@
                 },
                 "bgImg": {
                   "type": "string"
+                },
+                "usersFavourite": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 }
               }
             }
@@ -599,6 +613,39 @@
         "responses": {
           "200": {
             "description": "Boards by userId",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Board"
+              } 
+            }
+          }
+        }
+      }
+    },
+    "/favourites/{userId}": {
+      "get": {
+        "security": [
+          {
+             "Bearer": []
+          }
+        ],
+        "tags": ["Boards"],
+        "summary": "Get Favourite Boards by userId",
+        "description": "Get Boards where user is one of favourite",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User ID",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Favourite Boards by userId",
             "schema": {
               "type": "array",
               "items": {
@@ -1880,7 +1927,8 @@
         "owner",
         "users",
         "bgColor",
-        "bgImg"
+        "bgImg",
+        "usersFavourite"
       ],
       "properties": {
         "_id": {
@@ -1903,6 +1951,12 @@
         },
         "bgImg": {
           "type": "string"
+        },
+        "usersFavourite": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          } 
         }
       },
       "example": {
@@ -1914,7 +1968,11 @@
           "userId of invited user #2"
         ],
         "bgColor": "#222222",
-        "bgImg": ""
+        "bgImg": "",
+        "usersFavourite": [
+          "userId of favourite user #1",
+          "userId of favourite user #2"
+        ]
       }
     },
     "Column": {
