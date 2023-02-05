@@ -1862,7 +1862,9 @@
         "_id",
         "title",
         "owner",
-        "users"
+        "users",
+        "bgcolor",
+        "bgimage"
       ],
       "properties": {
         "_id": {
