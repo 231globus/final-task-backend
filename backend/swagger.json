@@ -363,7 +363,9 @@
               "required": [
                 "title",
                 "owner",
-                "users"
+                "users",
+                "bgcolor",
+                "bgimage"
               ],
               "properties": {
                 "title": {
@@ -377,7 +379,13 @@
                   "items": {
                     "type": "string"
                   } 
-                }       
+                },
+                "bgcolor": {
+                  "type": "string"
+                },
+                "bgimage": {
+                  "type": "string"
+                }
               }
             }
             
@@ -460,7 +468,9 @@
               "required": [
                 "title",
                 "owner",
-                "users"
+                "users",
+                "bgcolor",
+                "bgimage"
               ],
               "properties": {
                 "title": {
@@ -473,8 +483,14 @@
                   "type": "array",
                   "items": {
                     "type": "string"
-                  } 
-                }       
+                  }
+                },
+                "bgcolor": {
+                  "type": "string"
+                },
+                "bgimage": {
+                  "type": "string"
+                }
               }
             }
             
