@@ -364,8 +364,8 @@
                 "title",
                 "owner",
                 "users",
-                "bgcolor",
-                "bgimage"
+                "bgColor",
+                "bgImg"
               ],
               "properties": {
                 "title": {
@@ -380,10 +380,10 @@
                     "type": "string"
                   } 
                 },
-                "bgcolor": {
+                "bgColor": {
                   "type": "string"
                 },
-                "bgimage": {
+                "bgImg": {
                   "type": "string"
                 }
               }
@@ -469,8 +469,8 @@
                 "title",
                 "owner",
                 "users",
-                "bgcolor",
-                "bgimage"
+                "bgColor",
+                "bgImg"
               ],
               "properties": {
                 "title": {
@@ -485,10 +485,10 @@
                     "type": "string"
                   }
                 },
-                "bgcolor": {
+                "bgColor": {
                   "type": "string"
                 },
-                "bgimage": {
+                "bgImg": {
                   "type": "string"
                 }
               }
@@ -1879,8 +1879,8 @@
         "title",
         "owner",
         "users",
-        "bgcolor",
-        "bgimage"
+        "bgColor",
+        "bgImg"
       ],
       "properties": {
         "_id": {
@@ -1898,10 +1898,10 @@
             "type": "string"
           } 
         },      
-        "bgcolor": {
+        "bgColor": {
           "type": "string"
         },
-        "bgimage": {
+        "bgImg": {
           "type": "string"
         }
       },
@@ -1913,8 +1913,8 @@
           "userId of invited user #1",
           "userId of invited user #2"
         ],
-        "bgcolor": "#222222",
-        "bgimage": ""
+        "bgColor": "#222222",
+        "bgImg": ""
       }
     },
     "Column": {

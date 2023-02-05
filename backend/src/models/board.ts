@@ -14,11 +14,11 @@ const boardScheme = new Schema({
     type: [String],
     required: true,
   },
-  bgcolor: {
+  bgColor: {
     type: String,
     required: false,
   },
-  bgimage: {
+  bgImg: {
     type: String,
     required: false,
   }

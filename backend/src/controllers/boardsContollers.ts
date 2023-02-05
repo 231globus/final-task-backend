@@ -30,17 +30,17 @@ export const createBoard = async (req: Request, res: Response) => {
     "title",
     "owner",
     "users",
-    "bgcolor",
-    "bgimage",
+    "bgColor",
+    "bgImg",
   ]);
   if (bodyError) {
     return res.status(400).send(createError(400, "bad request: " + bodyError));
   }
 
-  const { title, owner, users, bgcolor, bgimage } = req.body;
+  const { title, owner, users, bgColor, bgImg } = req.body;
   try {
     const newBoard = await boardService.createBoard(
-      { title, owner, users, bgcolor, bgimage },
+      { title, owner, users, bgColor, bgImg },
       guid,
       initUser
     );
@@ -57,18 +57,18 @@ export const updateBoard = async (req: Request, res: Response) => {
     "title",
     "owner",
     "users",
-    "bgcolor",
-    "bgimage",
+    "bgColor",
+    "bgImg",
   ]);
   if (bodyError) {
     return res.status(400).send(createError(400, "bad request: " + bodyError));
   }
-  const { title, owner, users, bgcolor, bgimage } = req.body;
+  const { title, owner, users, bgColor, bgImg } = req.body;
 
   try {
     const updatedBoard = await boardService.updateBoard(
       req.params["boardId"],
-      { title, owner, users, bgcolor, bgimage },
+      { title, owner, users, bgColor, bgImg },
       guid,
       initUser
     );
