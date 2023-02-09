@@ -61,13 +61,13 @@ export const updateBoardColor = async (req: Request, res: Response) => {
   const { bgColor } = req.body;
 
   try {
-    const updatedBoard = await boardService.updateBoard(
+    const updatedBoardColor = await boardService.updateBoard(
       req.params["boardId"],
       { bgColor },
       guid,
       initUser
     );
-    res.json(updatedBoard);
+    res.json(updatedBoardColor);
   } catch (err) {
     return console.log(err);
   }
