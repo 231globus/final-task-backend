@@ -16,6 +16,8 @@ boardsRouter.post('/', jsonParser, boardsContollers.createBoard);
 
 boardsRouter.put('/:boardId', jsonParser, boardsContollers.updateBoard);
 
+boardsRouter.patch('/:boardId/bgcolor', jsonParser, boardsContollers.updateBoardColor);
+
 boardsRouter.delete('/:boardId', boardsContollers.deleteBoard);
 
 

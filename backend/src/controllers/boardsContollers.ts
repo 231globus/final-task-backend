@@ -51,6 +51,28 @@ export const createBoard = async (req: Request, res: Response) => {
   }
 };
 
+export const updateBoardColor = async (req: Request, res: Response) => {
+  const guid = req.header("Guid") || "undefined";
+  const initUser = req.header("initUser") || "undefined";
+  const bodyError = checkBody(req.body, ["bgColor"]);
+  if (bodyError) {
+    return res.status(400).send(createError(400, "bad request: " + bodyError));
+  }
+  const { bgColor } = req.body;
+
+  try {
+    const updatedBoard = await boardService.updateBoard(
+      req.params["boardId"],
+      { bgColor },
+      guid,
+      initUser
+    );
+    res.json(updatedBoard);
+  } catch (err) {
+    return console.log(err);
+  }
+};
+
 export const updateBoard = async (req: Request, res: Response) => {
   const guid = req.header("Guid") || "undefined";
   const initUser = req.header("initUser") || "undefined";
