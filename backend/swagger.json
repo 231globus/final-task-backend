@@ -554,6 +554,58 @@
         }
       }
     },
+    "/boards/{boardId}/bgcolor": {
+      "patch": {
+        "security": [
+          {
+             "Bearer": []
+          }
+        ],
+        "tags": ["Boards"],
+        "summary": "Update Board Color by Id",
+        "description": "Update Board",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "boardId",
+            "in": "path",
+            "description": "Board ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "new params",
+            "in": "body",
+            "description": "New params",
+            "schema": {
+              "required": [
+                "bgColor"
+              ],
+              "properties": {
+                "bgColor": {
+                  "type": "string"
+                }
+              }
+            }
+            
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Updated board",
+            "schema": {
+              "$ref": "#/definitions/Board"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"              
+            }
+          }
+        }
+      }
+    },
     "/boardsSet": {
       "get": {
         "security": [
