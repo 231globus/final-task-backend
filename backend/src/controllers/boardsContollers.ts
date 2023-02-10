@@ -61,13 +61,13 @@ export const updateBoardColor = async (req: Request, res: Response) => {
   const { bgColor } = req.body;
 
   try {
-    const updatedBoardColor = await boardService.updateBoardField(
+    const updatedBoard = await boardService.updateBoardField(
       req.params["boardId"],
       { bgColor },
       guid,
       initUser
     );
-    res.json(updatedBoardColor);
+    res.json(updatedBoard);
   } catch (err) {
     return console.log(err);
   }
@@ -83,13 +83,13 @@ export const updateBoardImg = async (req: Request, res: Response) => {
   const { bgImg } = req.body;
 
   try {
-    const updatedBoardImg = await boardService.updateBoardField(
+    const updatedBoard = await boardService.updateBoardField(
       req.params["boardId"],
       { bgImg },
       guid,
       initUser
     );
-    res.json(updatedBoardImg);
+    res.json(updatedBoard);
   } catch (err) {
     return console.log(err);
   }
@@ -105,13 +105,57 @@ export const updateBoardFavourites = async (req: Request, res: Response) => {
   const { usersFavourite } = req.body;
 
   try {
-    const updatedBoardFavourites = await boardService.updateBoardField(
+    const updatedBoard = await boardService.updateBoardField(
       req.params["boardId"],
       { usersFavourite },
       guid,
       initUser
     );
-    res.json(updatedBoardFavourites);
+    res.json(updatedBoard);
+  } catch (err) {
+    return console.log(err);
+  }
+};
+
+export const updateBoardUsers = async (req: Request, res: Response) => {
+  const guid = req.header("Guid") || "undefined";
+  const initUser = req.header("initUser") || "undefined";
+  const bodyError = checkBody(req.body, ["users"]);
+  if (bodyError) {
+    return res.status(400).send(createError(400, "bad request: " + bodyError));
+  }
+  const { users } = req.body;
+
+  try {
+    const updatedBoard = await boardService.updateBoardField(
+      req.params["boardId"],
+      { users },
+      guid,
+      initUser
+    );
+    res.json(updatedBoard);
+  } catch (err) {
+    return console.log(err);
+  }
+};
+
+export const updateBoardTitle = async (req: Request, res: Response) => {
+  const guid = req.header("Guid") || "undefined";
+  const initUser = req.header("initUser") || "undefined";
+  const bodyError = checkBody(req.body, ["title"]);
+  if (bodyError) {
+    return res.status(400).send(createError(400, "bad request: " + bodyError));
+  }
+  const { title } = req.body;
+
+  try {
+    const updatedBoard = await boardService.updateBoardField(
+      req.params["boardId"],
+      { title },
+      guid,
+      initUser
+    );
+    res.json(updatedBoard);
   } catch (err) {
     return console.log(err);
   }

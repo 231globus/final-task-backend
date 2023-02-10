@@ -22,6 +22,10 @@ boardsRouter.patch('/:boardId/image', jsonParser, boardsContollers.updateBoardIm
 
 boardsRouter.patch('/:boardId/favourites', jsonParser, boardsContollers.updateBoardFavourites);
 
+boardsRouter.patch('/:boardId/users', jsonParser, boardsContollers.updateBoardUsers);
+
+boardsRouter.patch('/:boardId/title', jsonParser, boardsContollers.updateBoardTitle);
+
 boardsRouter.delete('/:boardId', boardsContollers.deleteBoard);
 
 
