@@ -65,6 +65,23 @@ export const updateBoard = async (id: string, params: any, guid: string, initUse
   return updatedBoard;
 }
 
+
+export const updateBoardField = async (id: string, params: any, guid: string, initUser: string, emit = true, notify = true) => {
+  const boardId = new ObjectId(id);
+  const updatedBoard = await board.findByIdAndUpdate(boardId, params, { new: true });
+  if (emit) {
+    socket.emit('boards', {
+      action: 'update',
+      users: await getUserIdsByBoardsIds([updatedBoard._id]),
+      ids: [updatedBoard._id],
+      guid,
+      notify,
+      initUser
+    });
+  }
+  return updatedBoard;
+}
+
 export const deleteBoardById = async (boardId: string, guid: string, initUser: string, emit = true, notify = true) => {
   const id = new ObjectId(boardId);
   const deletedBoard = await board.findByIdAndDelete(id);
