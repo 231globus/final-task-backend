@@ -95,6 +95,28 @@ export const updateBoardImg = async (req: Request, res: Response) => {
   }
 };
 
+export const updateBoardFavourites = async (req: Request, res: Response) => {
+  const guid = req.header("Guid") || "undefined";
+  const initUser = req.header("initUser") || "undefined";
+  const bodyError = checkBody(req.body, ["usersFavourite"]);
+  if (bodyError) {
+    return res.status(400).send(createError(400, "bad request: " + bodyError));
+  }
+  const { usersFavourite } = req.body;
+
+  try {
+    const updatedBoardFavourites = await boardService.updateBoardField(
+      req.params["boardId"],
+      { usersFavourite },
+      guid,
+      initUser
+    );
+    res.json(updatedBoardFavourites);
+  } catch (err) {
+    return console.log(err);
+  }
+};
+
 export const updateBoard = async (req: Request, res: Response) => {
   const guid = req.header("Guid") || "undefined";
   const initUser = req.header("initUser") || "undefined";
