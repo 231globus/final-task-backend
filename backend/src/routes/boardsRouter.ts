@@ -18,6 +18,8 @@ boardsRouter.put('/:boardId', jsonParser, boardsContollers.updateBoard);
 
 boardsRouter.patch('/:boardId/bgcolor', jsonParser, boardsContollers.updateBoardColor);
 
+boardsRouter.patch('/:boardId/image', jsonParser, boardsContollers.updateBoardImg);
+
 boardsRouter.delete('/:boardId', boardsContollers.deleteBoard);
 
 

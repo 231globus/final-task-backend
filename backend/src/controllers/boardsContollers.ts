@@ -73,6 +73,28 @@ export const updateBoardColor = async (req: Request, res: Response) => {
   }
 };
 
+export const updateBoardImg = async (req: Request, res: Response) => {
+  const guid = req.header("Guid") || "undefined";
+  const initUser = req.header("initUser") || "undefined";
+  const bodyError = checkBody(req.body, ["bgImg"]);
+  if (bodyError) {
+    return res.status(400).send(createError(400, "bad request: " + bodyError));
+  }
+  const { bgImg } = req.body;
+
+  try {
+    const updatedBoardImg = await boardService.updateBoardField(
+      req.params["boardId"],
+      { bgImg },
+      guid,
+      initUser
+    );
+    res.json(updatedBoardImg);
+  } catch (err) {
+    return console.log(err);
+  }
+};
+
 export const updateBoard = async (req: Request, res: Response) => {
   const guid = req.header("Guid") || "undefined";
   const initUser = req.header("initUser") || "undefined";
