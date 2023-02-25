@@ -62,6 +62,86 @@ export const updateTask = async (req: Request, res: Response) => {
   catch (err) { return console.log(err); }
 };
 
+export const updateTaskUsers = async (req: Request, res: Response) => {
+  const guid = req.header('Guid') || 'undefined';
+  const initUser = req.header('initUser') || 'undefined';
+  const bodyError = checkBody(req.body, ['users'])
+  if (bodyError) {
+    return res.status(400).send(createError(400, "bad request: " + bodyError));
+  }
+  const { users } = req.body;
+
+  try {
+    const updatedTask = await taskService.updateTask(req.params.taskId, { users }, guid, initUser);
+    res.json(updatedTask);
+  }
+  catch (err) { return console.log(err); }
+};
+
+export const updateTaskColumnId = async (req: Request, res: Response) => {
+  const guid = req.header('Guid') || 'undefined';
+  const initUser = req.header('initUser') || 'undefined';
+  const bodyError = checkBody(req.body, ['columnId'])
+  if (bodyError) {
+    return res.status(400).send(createError(400, "bad request: " + bodyError));
+  }
+  const { columnId} = req.body;
+
+  try {
+    const updatedTask = await taskService.updateTask(req.params.taskId, { columnId }, guid, initUser);
+    res.json(updatedTask);
+  }
+  catch (err) { return console.log(err); }
+};
+
+export const updateTaskOrder = async (req: Request, res: Response) => {
+  const guid = req.header('Guid') || 'undefined';
+  const initUser = req.header('initUser') || 'undefined';
+  const bodyError = checkBody(req.body, ['order'])
+  if (bodyError) {
+    return res.status(400).send(createError(400, "bad request: " + bodyError));
+  }
+  const { order } = req.body;
+
+  try {
+    const updatedTask = await taskService.updateTask(req.params.taskId, { order }, guid, initUser);
+    res.json(updatedTask);
+  }
+  catch (err) { return console.log(err); }
+};
+
+export const updateTaskTitle = async (req: Request, res: Response) => {
+  const guid = req.header('Guid') || 'undefined';
+  const initUser = req.header('initUser') || 'undefined';
+  const bodyError = checkBody(req.body, ['title'])
+  if (bodyError) {
+    return res.status(400).send(createError(400, "bad request: " + bodyError));
+  }
+  const { title } = req.body;
+
+  try {
+    const updatedTask = await taskService.updateTask(req.params.taskId, { title }, guid, initUser);
+    res.json(updatedTask);
+  }
+  catch (err) { return console.log(err); }
+};
+
+export const updateTaskDescription = async (req: Request, res: Response) => {
+  const guid = req.header('Guid') || 'undefined';
+  const initUser = req.header('initUser') || 'undefined';
+  const bodyError = checkBody(req.body, ['description'])
+  if (bodyError) {
+    return res.status(400).send(createError(400, "bad request: " + bodyError));
+  }
+  const { description } = req.body;
+
+  try {
+    const updatedTask = await taskService.updateTask(req.params.taskId, { description }, guid, initUser);
+    res.json(updatedTask);
+  }
+  catch (err) { return console.log(err); }
+};
+
 export const deleteTask = async (req: Request, res: Response) => {
   const guid = req.header('Guid') || 'undefined';
   const initUser = req.header('initUser') || 'undefined';
